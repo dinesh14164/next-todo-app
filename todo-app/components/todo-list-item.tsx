@@ -2,7 +2,7 @@ import { completePost, deletePost } from "@/app/lib/actions";
 import EditTodo from "./edit-todo";
 
 export interface Todo {
-    id: number;
+    _id: number;
     title: string;
     completed: boolean;
 }
@@ -36,7 +36,7 @@ export default function TodoListItem({ todo }: TodoListItemProps) {
                 <form className="flex items-center space-x-2" action={deletePost}>
                     <input
                         type="text"
-                        defaultValue={todo.id}
+                        defaultValue={todo._id}
                         name="id"
                         className="hidden"
                     />
@@ -56,7 +56,7 @@ export default function TodoListItem({ todo }: TodoListItemProps) {
                     <form className="flex items-center space-x-2" action={completePost}>
                         <input
                             type="text"
-                            defaultValue={todo.id}
+                            defaultValue={todo._id}
                             name="id"
                             className="hidden"
                         />

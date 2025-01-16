@@ -4,7 +4,7 @@ import { editPost } from "@/app/lib/actions";
 import { useState } from "react";
 
 interface Todo {
-    id: number;
+    _id: number;
     title: string;
 }
 
@@ -18,7 +18,7 @@ export default function EditTodo({ todo }: { todo: Todo }) {
                 <form className="flex items-center space-x-2" action={editPost} onSubmit={() => setIsEditing(false)}>
                     <input
                         type="text"
-                        defaultValue={todo.id}
+                        defaultValue={todo._id}
                         name="id"
                         className="hidden"
                     />
