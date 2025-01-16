@@ -1,19 +1,18 @@
-require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const { MONGODB_URI } = require('./config');
 
 // Initialize app and middleware
 const app = express();
 const PORT = 8080;
-const mongoDBUri = process.env.MONGODB_URI;
 app.use(bodyParser.json());
 app.use(cors());
 
 // MongoDB connection
 mongoose
-  .connect(mongoDBUri)
+  .connect(MONGODB_URI)
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error('MongoDB connection error:', err));
 
@@ -26,6 +25,11 @@ const todoSchema = new mongoose.Schema({
 const Todo = mongoose.model('Todo', todoSchema);
 
 // CRUD API routes
+
+app.get('/', (req, res) => {
+    res.send('It worked!');
+});
+
 app.get('/todos', async (req, res) => {
   try {
     const todos = await Todo.find();

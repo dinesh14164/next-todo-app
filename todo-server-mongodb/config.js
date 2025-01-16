@@ -1,0 +1,1 @@
+export const MONGODB_URI = "mongodb+srv://dinesh1410064:test1234@todo-app.apmfs.mongodb.net/?retryWrites=true&w=majority&appName=todo-app"
