@@ -3,7 +3,8 @@
 import { revalidatePath } from "next/cache";
 import axios from 'axios';
 
-const baseUrl = 'http://localhost:8080/todos';
+// const baseUrl = 'http://localhost:8080/todos'; // local url
+const baseUrl = 'https://next-todo-app-backend.vercel.app/todos'; // production url
 
 export async function getPosts() {
     const response = await axios.get(baseUrl);
